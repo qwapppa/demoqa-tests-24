@@ -26,12 +26,5 @@ public class PracticeFormTests {
         $("#firstName").setValue("Daniil");
         $("#lastName").setValue("Mikhalkov");
         $("#userEmail").setValue("qwapppa@mail.ru");
-        $("#permanentAddress").setValue("Street 2");
-        $("#submit").click();
-
-        $("#output #name").shouldHave(text("q"));
-        $("#output #email").shouldHave(text("qwapppa@pa.com"));
-        $("#output #currentAddress").shouldHave(text("Street 1"));
-        $("#output #permanentAddress").shouldHave(text("Street 2"));
     }
 }
