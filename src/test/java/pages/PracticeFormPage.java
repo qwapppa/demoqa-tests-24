@@ -21,15 +21,19 @@ public class PracticeFormPage {
             textareaCurrentAddress = $("#currentAddress"),
             stateInput = $("#state"),
             cityInput = $("#city"),
-            buttonSubmit = $("#submit"),
-            submit = $("#submit");
+            buttonSubmit = $("#submit");
 
 
-    DateOfBirthComponent dateOfBirthComponent = new DateOfBirthComponent();
-    CheckRegistrationComponent checkRegistrationComponent = new CheckRegistrationComponent();
+    final DateOfBirthComponent dateOfBirthComponent = new DateOfBirthComponent();
+    final CheckRegistrationComponent checkRegistrationComponent = new CheckRegistrationComponent();
 
     public PracticeFormPage openPage() {
         open("/automation-practice-form");
+
+        return this;
+    }
+
+    public PracticeFormPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 
@@ -58,10 +62,11 @@ public class PracticeFormPage {
 
     public PracticeFormPage setGender(String gender) {
         genderRadio.$(byText(gender)).click();
+
         return this;
     }
 
-    public PracticeFormPage setNumberInput(String number) {
+    public PracticeFormPage setMobileNumber(String number) {
         userNumberInput.setValue(number);
 
         return this;
@@ -84,16 +89,19 @@ public class PracticeFormPage {
 
     public PracticeFormPage setHobbyCheckbox(String hobby) {
         hobbyCheckbox.$(byText(hobby)).click();
+
         return this;
     }
 
-    public PracticeFormPage inputUploadPicture(String filepath) {
+    public PracticeFormPage setPicture(String filepath) {
         uploadPicture.uploadFromClasspath(filepath);
+
         return this;
     }
 
     public PracticeFormPage setCurrentAddress(String address) {
         textareaCurrentAddress.setValue(address);
+
         return this;
 
     }
@@ -101,6 +109,7 @@ public class PracticeFormPage {
     public PracticeFormPage setState(String state) {
         stateInput.click();
         stateInput.$(byText(state)).click();
+
         return this;
 
     }
@@ -108,6 +117,7 @@ public class PracticeFormPage {
     public PracticeFormPage setCity(String city) {
         cityInput.click();
         cityInput.$(byText(city)).click();
+
         return this;
 
     }
@@ -118,6 +128,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage verifyAppearance(String key, String value) {
         checkRegistrationComponent.checkResult(key, value);
+
         return this;
     }
 
@@ -125,8 +136,4 @@ public class PracticeFormPage {
         checkRegistrationComponent.getTableElement().shouldNotBe(visible);
     }
 
-    public void submit() {
-        submit
-                .click();
-    }
 }

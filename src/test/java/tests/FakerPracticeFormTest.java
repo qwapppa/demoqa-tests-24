@@ -1,28 +1,41 @@
+// FakerPracticeFormTest
+
 package tests;
 
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
 import pages.PracticeFormPage;
 
-public class PracticeFormTest extends TestBase {
+import java.util.Locale;
 
-    final PracticeFormPage practiceFormPage = new PracticeFormPage();
+public class FakerPracticeFormTest extends TestBase {
+
+    Faker faker = new Faker(new Locale("en-GB"));
+
+    String firstName = faker.name().firstName();
+    String lastName = faker.name().lastName();
+    String userEmail = faker.internet().emailAddress();
+    String userGender = faker.options().option("Male", "Female", "Other");
+    String streetAddress = faker.address().streetAddress();
+    String userNumber = faker.phoneNumber().cellPhone();
+
+    PracticeFormPage practiceFormPage = new PracticeFormPage();
 
     @Test
     void successfulFillFormTest() {
 
         practiceFormPage.openPage()
-                .removeBanners()
-                .setFirstName("Daniil")
-                .setLastName("Mikhalkov")
-                .setEmail("qwapppa@mail.ru")
-                .setGender("Female")
-                .setMobileNumber("1234567890")
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setEmail(userEmail)
+                .setGender(userGender)
+                .setMobileNumber(userNumber)
                 .setDateOfBirth("12", "June", "2000")
                 .setSubjectsInput("civics")
                 .setHobbyCheckbox("Music")
                 .setPicture("purple.jpg")
-                .setCurrentAddress("Улица Пушкина дом Колотушкина")
+                .setCurrentAddress(streetAddress)
                 .setState("NCR")
                 .setCity("Delhi")
                 .submitForm();
