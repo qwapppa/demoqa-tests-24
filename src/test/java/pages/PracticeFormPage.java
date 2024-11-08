@@ -81,7 +81,7 @@ public class PracticeFormPage {
 
     }
 
-    public PracticeFormPage setSubjectsInput(String value) {
+    public PracticeFormPage setSubjects(String value) {
         subjectsInput.setValue(value).pressTab();
 
         return this;

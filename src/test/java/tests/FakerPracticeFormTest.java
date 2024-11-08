@@ -17,8 +17,11 @@ public class FakerPracticeFormTest extends TestBase {
     String lastName = faker.name().lastName();
     String userEmail = faker.internet().emailAddress();
     String userGender = faker.options().option("Male", "Female", "Other");
-    String streetAddress = faker.address().streetAddress();
     String userNumber = faker.phoneNumber().cellPhone();
+    String userStreetAddress = faker.address().streetAddress();
+    String userHobbies = faker.options().option("Sports", "Reading", "Music");
+    String userState = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan");
+    String userSubject = faker.options().option("Accounting", "Maths", "Arts", "Social Studies", "Chemistry", "Computer Science", "Commerce", "Physics", "Economics");
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
 
@@ -32,11 +35,11 @@ public class FakerPracticeFormTest extends TestBase {
                 .setGender(userGender)
                 .setMobileNumber(userNumber)
                 .setDateOfBirth("12", "June", "2000")
-                .setSubjectsInput("civics")
-                .setHobbyCheckbox("Music")
+                .setSubjects(userSubject)
+                .setHobbyCheckbox(userHobbies)
                 .setPicture("purple.jpg")
-                .setCurrentAddress(streetAddress)
-                .setState("NCR")
+                .setCurrentAddress(userStreetAddress)
+                .setState(userState)
                 .setCity("Delhi")
                 .submitForm();
 
