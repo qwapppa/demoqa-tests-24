@@ -5,17 +5,17 @@ import pages.TextBoxPage;
 
 public class TextBoxTests extends TestBase {
 
-    TextBoxPage textBoxPage = new TextBoxPage();
+    final TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
     void fillFormTest() {
         textBoxPage.openPage()
-                .setName("Daniil")
-                .setEmail("qwapppa@gmail.com")
-                .setCurrentAddress("Улица Пушкина дом Колотушкина")
-                .setPermanentAddress("Улица Пушкина дом Колотушкина 2")
+                .setName(randomUtils.userFullName)
+                .setEmail(randomUtils.userEmail)
+                .setCurrentAddress(randomUtils.userStreetAddress)
+                .setPermanentAddress(randomUtils.userStreetAddress)
                 .submitForm();
 
-        textBoxPage.checkResult("Daniil", "qwapppa@gmail.com", "Улица Пушкина дом Колотушкина", "Улица Пушкина дом Колотушкина 2");
+        textBoxPage.checkResult(randomUtils.userFullName, randomUtils.userEmail, randomUtils.userStreetAddress, randomUtils.userStreetAddress);
     }
 }

@@ -2,10 +2,14 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import pages.components.CheckRegistrationComponent;
+import tests.TestBase;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class TextBoxPage {
+public class TextBoxPage extends TestBase {
+
+    final CheckRegistrationComponent checkRegistrationComponent = new CheckRegistrationComponent();
 
     private final SelenideElement nameInput = $("#userName"),
             emailInput = $("#userEmail"),

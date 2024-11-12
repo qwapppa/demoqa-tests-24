@@ -19,7 +19,7 @@ public class PracticeFormTest extends TestBase {
                 .setGender("Female")
                 .setMobileNumber("1234567890")
                 .setDateOfBirth("12", "June", "2000")
-                .setSubjects("civics")
+                .setSubject("civics")
                 .setHobbyCheckbox("Music")
                 .setPicture("purple.jpg")
                 .setCurrentAddress("Улица Пушкина дом Колотушкина")

@@ -15,7 +15,7 @@ public class PracticeFormPage {
             genderRadio = $("#genterWrapper"),
             userNumberInput = $("#userNumber"),
             dateOfBirthInput = $("#dateOfBirthInput"),
-            subjectsInput = $("#subjectsInput"),
+            subjectInput = $("#subjectsInput"),
             hobbyCheckbox = $("#hobbiesWrapper"),
             uploadPicture = $("#uploadPicture"),
             textareaCurrentAddress = $("#currentAddress"),
@@ -81,8 +81,8 @@ public class PracticeFormPage {
 
     }
 
-    public PracticeFormPage setSubjects(String value) {
-        subjectsInput.setValue(value).pressTab();
+    public PracticeFormPage setSubject(String value) {
+        subjectInput.setValue(value).pressTab();
 
         return this;
     }
